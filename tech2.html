@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestify</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .header{
+            display: flex;
+            background-color: #7e513b;
+            width: 100%;
+            height: 50px;
+        }
+        body{
+            background-color: #b08470;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        .logo{
+            position: absolute;
+            transform: scale(0.2);
+            margin-left: -42%;
+            margin-top: -715px;
+            z-index: 1;
+        }
+        .search{
+            position: relative;
+            width: 50%;
+            height: 60%;
+            margin-top: 10px;
+            margin-left: 21%;
+            padding: 3px;
+            background-color: #b08470;
+            border: 1px solid #b08470;
+            border-right: 3px solid #7e513b;
+        }
+        .search::placeholder{
+            color: #521c14;
+        }
+        .searchLabel{
+            position: relative;
+            margin-top: 10px;
+            width: 1%;
+            height: 59%;
+            padding: 3px;
+            background-color: #b08470;
+            border: 1px solid #b08470;
+        }
+        .searchLabel img{
+            margin-top: -1px;
+        }
+        .user{
+            scale: 1.4;
+            margin-top: 15px;
+            margin-left: 24%;
+        }
+        .cart{
+            scale: 1.5;
+            margin-top: 15px;
+            margin-left: 1%;
+        }
+
+        .row{
+            gap: 13px;
+            display: flex;
+            flex-direction: row;
+            margin-left: 100px;
+        }
+        .img{
+            border: 3px solid black;
+            width: 125px;
+            height: 125px;
+            margin-top: 25px;
+        }
+        .side{
+            position: absolute;
+            margin-left: 580px;
+            margin-top: -7px;
+        }
+        .side2{
+            position: absolute;
+            margin-left: 980px;
+            margin-top: -7px;
+        }
+        .side h2{
+            margin-top: 25px;
+        }
+        .img img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .carouselWrapper {
+          position: relative;
+          margin-top: 50px;
+          margin-left: 100px;
+          width: 400px;
+          height: 400px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 3px solid black;
+          overflow: hidden;
+        }
+        #carouselExampleControls {
+          width: 100%;
+          height: 100%;
+        }
+        .carousel-controls {
+          position: absolute;
+          top: 50%;
+          left: 100%;
+        }
+        .carousel-control-prev{
+          border-radius: 50%;
+          margin-top: -450px;
+          margin-left: -55px;
+        
+        }
+        .carousel-control-next{
+            margin-top: -450px;
+            left: 390px;
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon{
+          margin-left: -4000px;
+        }
+        .reviews{
+            position: relative;
+            background-color: #7e513b;
+            width: 100%;
+            height: 50px;
+            margin-top: 125px;
+        }
+        .review{
+            background-color: #7e513b;
+            color: #dfd4cf;
+            border: 3px solid black;
+            margin-top: 25px;
+            margin-left: 10%;
+            width: 80%;
+            height: 95px;
+            border-radius: 4px;
+            display: flex;
+            padding-top: 3px;
+            margin-bottom: 50px;
+        }
+        .review1{
+            background-color: #7e513b;
+            color: #dfd4cf;
+            border: 3px solid black;
+            margin-top: 125px;
+            margin-left: 10%;
+            width: 80%;
+            height: 95px;
+            border-radius: 4px;
+            display: flex;
+            padding-top: 3px;
+        }
+        .reviewImage{
+            position: relative;
+            border: 3px solid black;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin-top: 25px;
+            margin-left: 10px;
+        }
+        .reviewImg{
+          position: relative;
+            margin-left: 13px;
+            margin-top: 12px;
+        }
+        .text{
+          width: 1500px;
+          margin-top: -65px;
+        }
+        .text1{
+          margin-left: 67px;
+          margin-top: 15px;
+        }
+        .stars{
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+          margin-left: 1540px;
+          margin-top: -60px;
+        }
+        .stars1{
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+          margin-left: 1568px;
+          margin-top: -60px;
+        }
+        .button{
+          position: relative;
+          top: 75px;
+          left: 45%;
+          height: 40px;
+          width: 10%;
+          border: 3px solid #7e513b;
+          border-radius: 4px;
+          background-color: #7e513b;
+          color: #dfd4cf;
+          transition: 0.6s all ease 0s;
+          scale: 1;
+        }
+        .button:hover{
+          transition: 0.6s all ease 0s;
+          background-color: #521c14;
+          border: 3px solid #521c14;
+          scale: 1.1;
+        }
+
+        .footer{
+            align-items: center;
+            margin-top: 41px;
+            width: 100%;
+            height: 50px;
+            background-color: #7e513b;
+            display: flex;
+            gap: 10px;
+        }
+        .footer img{
+            scale: 1.3;
+        }
+        .Contacts{
+            margin-top: 8px;
+            margin-left: 1%;
+        }
+        .copyright{
+            position: relative;
+            font-size: 11px;
+            margin-top: 25px;
+            left: 78%;
+            white-space: nowrap;
+        }
+        .footerLogo{
+            margin-left: 34%;
+            transform: scale(0.1);
+        }
+        #registerWindow{
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        #registerWindow .closeBtn{
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+        }
+        #overlay{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .registerForm input[type="text"],
+        .registerForm input[type="password"]{
+          width: 100%;
+          padding: 8px;
+          margin: 5px 0 15px 0;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          }
+        input[type="submit"]{
+            width: 100%;
+            padding: 8px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover{
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay"></div>
+    <div id="registerWindow">
+      <span class="closeBtn" id="closeBtn">&times;</span>
+      <h2>Register</h2>
+      <form id="registerForm" class="registerForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Submit" style="background-color: #7e513b;">
+      </form>
+    </div>
+    <div class="header">
+        <a href="index.html">
+        <img class="logo" src="assets/Logo.png" alt="">
+        </a>
+        <input class="search" id="search" type="text" placeholder="Search">
+        <label class="searchLabel" for="search"><img src="assets/search.png" alt="magnifying glass"></label> 
+        <a class="user" href="#"><img src="assets/user.png" alt="user"></a>
+        <a class="cart" href="#"><img src="assets/cart.png" alt="cart"></a>
+    </div>
+    <div class="body">
+        <div class="side">
+            <h1>PC</h1>
+            <h2>735$</h2>
+            <h2>Seller: Nestify</h2>
+            <h2>4.4&#9733;</h2>
+            <h2>Payment Method: <br>Cash only</h2>
+            <h2>Warranty: 6 Months</h2>
+        </div>
+        <div class="side2">
+            <h1>About:</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure consequuntur id laudantium dolor sunt! Doloribus facilis nesciunt repudiandae ad officiis error accusamus architecto ipsum sit fugit tempora provident odit cupiditate exercitationem corporis laudantium, eligendi accusantium aut vel. Ullam, aspernatur consequuntur! Reprehenderit, non, illum rerum hic corrupti possimus mollitia ut, incidunt sequi officiis debitis! Ea ipsa quidem incidunt. Atque nemo minus aut sed, voluptate eligendi iusto perferendis, tenetur doloribus sapiente laborum sint accusamus adipisci cumque corporis omnis, asperiores odit facere molestiae. Unde earum dolorem excepturi aspernatur exercitationem sint a dicta totam.</h2>
+        </div>
+        <div class="carouselWrapper">
+            <div id="carouselExampleControls" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="assets/tech2.webp" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="assets/tech2.webp" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="assets/tech2.webp" alt="Third slide">
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="carousel-controls">
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+          </div>
+          <a href="index.html"><button class="button">Order</button></a>
+          <div class="reviews">
+            <h1 style="text-align: center;">Reviews</h1>
+            <div class="review"><div class="reviewImage"><img class="reviewImg" src="assets/user.png" alt=""><div class="text"><h5>Buyer</h5><h6 class="text1">The thing I`ve bought is absolutely amazing! The price, the quality and the speed of the delivery! Im putting 5 stars!</h6></div>
+            <div class="stars">
+              <img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""></div></div>
+            </div>
+          </div>
+          <br>
+          <div class="review1"><div class="reviewImage"><img class="reviewImg" src="assets/user.png" alt=""><div class="text"><h5>Buyer1</h5><h6 class="text1">The thing is good! The price and the quality was really cool, hovewer I didn`t like that I was waiting too much for it!</h6></div>
+            <div class="stars1">
+              <img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""><img class="star" src="assets/star.png" alt=""></div></div>
+            </div>
+          </div>
+          
+
+
+    </div>
+
+
+
+
+    <div class="footer">
+        <h5 class="Contacts">Contacts</h5>
+        <a href="#"><img src="assets/instagram.png" alt=""></a>
+        <a href="#"><img src="assets/facebook.png" alt=""></a>
+        <a href="#"><img src="assets/youtube.png" alt=""></a>
+        <a href="#"><img src="assets/twitter.png" alt=""></a>
+        <a href="#"><img src="assets/telegram.png" alt=""></a>
+        <a href="#"><img src="assets/tik-tok.png" alt=""></a>
+        <p class="copyright">&#169; 2020-2026</p>
+        <img class="footerLogo" src="assets/Logo.png" alt="">
+      </div>
+
+
+
+      <script>
+        const openBtn = document.querySelector('.user');
+        const closeBtn = document.getElementById('closeBtn');
+        const overlay = document.getElementById('overlay');
+        const registerWindow = document.getElementById('registerWindow');
+        const registerForm = document.getElementById('registerForm');
+      
+        openBtn.onclick = (e) => {
+          e.preventDefault();
+          registerWindow.style.display = 'block';
+          overlay.style.display = 'block';
+        };
+      
+        closeBtn.onclick = () => {
+          registerWindow.style.display = 'none';
+          overlay.style.display = 'none';
+        };
+      
+        overlay.onclick = () => {
+          registerWindow.style.display = 'none';
+          overlay.style.display = 'none';
+        };
+      
+        registerForm.onsubmit = (e) => {
+          e.preventDefault();
+          alert("Successfully registered");
+          registerWindow.style.display = 'none';
+          overlay.style.display = 'none';
+          registerForm.reset();
+        };
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
